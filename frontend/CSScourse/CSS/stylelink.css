@@ -1,0 +1,23 @@
+body{
+    padding: 10%;
+    font-size: 1.5rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+a{
+    text-decoration: none;
+    cursor: /* not-allowed */pointer;
+    color: rgb(0, 145, 255);
+}
+/* a:visited {
+        color: purple;
+} */
+a:hover, a:focus { /* focus create corder around link when tab clicked */
+   /*  color:  rgb(0, 76, 255); */
+  /*  opacity: 0.5; */  /* makes text transparent */
+  color:  hsl(222, 100%, 50%,0.5);
+  background-color: gold;
+}
+a:active{
+    color: red;
+}

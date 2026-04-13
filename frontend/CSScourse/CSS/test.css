@@ -1,0 +1,78 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+html{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    margin: 10px;
+    border: 2px solid red;
+    min-height: 200vw;
+}
+body{
+    padding: 20%;
+    font-size: 4rem;
+    font-family: "Roboto", sans-serif;
+}
+p {
+    color: blue;
+    text-decoration: none;
+    text-transform:none;
+    text-align: none;
+    text-indent: 2rem;
+    line-height: 2rem;
+
+    /* letter-spacing: 0.08rem;
+    word-spacing: 0.15rem; */
+    font-style: normal;
+
+   /*  font-family:Arial, Helvetica, sans-serif; */
+}
+p span{
+    background-color: antiquewhite;
+    color: rgb(18, 17, 19);
+}
+.para1{
+    font-size: 32px;
+}
+.heading{
+    font-size: 40px;
+}
+h1,h2{
+    background-color: lightgray;
+    font-family: 'Courier New', Courier, monospace;
+
+}
+.highlight{
+    background-color: rgb(210, 197, 7);
+    font-style: italic;
+}
+.container{
+    border: 2px solid black;
+    padding: 2rem;
+    margin: 1rem;
+    font-size: 1.5rem;
+    
+}
+ol{
+    list-style-type: decimal-leading-zero ;
+
+}
+ul{
+    list-style: url(../images/check1.png) inside;
+    text-align: center;
+}
+
+a{
+    text-decoration: none;
+    color: rgb(247, 75, 75);
+    cursor: pointed;
+}
+
+a:hover,a:focus{
+    color: brown;
+    background-color: aquamarine;
+}
+a:active{
+    color: greenyellow;
+}
+

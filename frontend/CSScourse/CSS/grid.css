@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: "Roboto",sans-serif;
+    font-size: 1.5rem;
+    min-height: 100vh;
+
+    display: grid;
+    grid-template-columns: repeat(9,1fr);
+    grid-auto-rows: 50px auto 50px;
+    grid-template-areas: 
+      "hd hd hd hd hd hd hd hd hd"
+      "sb sb mn mn mn mn mn mn mn"
+      "ft ft ft ft ft ft ft ft ft";
+      column-gap:0.5rem;
+
+}
+
+.el{
+    background-color: rebeccapurple;
+    color: beige;
+    display: grid;
+    place-content: center;
+}
+
+.header{
+    grid-area: hd;
+}
+
+.sidebar{
+    grid-area: sb;
+    background-color: rgb(132, 132, 243);
+}
+.footer{
+    grid-area: ft;
+
+}
+.container{
+    grid-area: mn;
+    display: grid;
+    min-height: 400px;
+    /* grid-auto-flow: column; */
+    grid-template-columns: /* 200px 1fr 1fr *//* 2fr 1fr 2fr */
+    repeat(4,2fr/* 2,1fr 2fr */);
+    grid-auto-rows: minmax(150px,auto);/*  150 sa kam height nahi hogi har row ki */
+    /* auto allow to grow taller if container is taller to fill th space */
+    row-gap: 1em;
+    column-gap: 1em;
+    gap: 1em;
+    /* every thing also has opposite of it if for row than for column also */
+
+}
+.box{
+    background-color: rgb(34, 30, 24);
+    color: bisque;
+    font-size: 2rem;
+    padding: 0.5rem;
+
+}
+/* .box:first-child{
+    background-color: blue;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 3;
+
+} */
+ .box:first-child{
+    background-color: rgb(230, 45, 85);
+    grid-column: 1/4;
+    grid-row: 1/3;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    place-content: end center; /*  first align then justify */
+    place-content: center;
+ }
+ .box:nth-child(2){
+    background-color: blueviolet;
+    grid-column: 1/5;
+    grid-row: 3/4;
+ }
+
+
+
+
+
+
+
+
+

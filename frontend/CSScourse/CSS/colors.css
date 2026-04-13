@@ -1,0 +1,9 @@
+body{
+    font-size: 22px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgba(240, 9, 240, 0.699);
+    line-height: 1.5;
+}
+p{
+    color: hsla(153, 78%, 91%, 0.967);
+}

@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+body{
+    font-family: "Roboto",sans-serif;
+    font-size: 1.5rem;
+}
+.columns{
+  /*   column-count: 4; first fore para in news paper columns
+    column-width: 250px; it never reduce the size of column belo 250px but remain flexible if stretched
+ */
+ columns: 4 250px;
+ column-rule: 2px solid #333;
+ column-gap: 3rem;
+}
+/* in default  we have margins above and below the bottem 
+margin of first para overlaps the topmargin of following pare 
+we remove it bellow as we know p is block level element so 
+it can do so. */
+.columns p{
+    margin-top: 0;
+}
+.columns h2{
+    margin-top: 0;
+    background-color: black;
+    color: aliceblue;
+    padding: 1rem;
+    break-inside: avoid;
+
+}
+.columns .quote{
+    margin-top:2rem ;
+    font-size: 3rem;
+    text-align: center;
+    color: #333;
+    column-span: all;
+}
+.nowrap{
+    white-space: nowrap;  /* em dash the dude ak bloc ho jayage size change honapar alag nahi hoga */
+}

@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+body{
+    font-family: "Roboto",sans-serif;
+    font-size: 1.5rem;
+    min-height: 200vw; /* by default half height milti hai pori chahiya toh min-height: 200vw; */
+}
+.outer-container{
+    border: 2px dashed black;
+    width: 75vw;
+    height: 85vw;
+    margin: 40px auto; /* apna hisab sa change karaga browser left right margin */
+    
+}
+.inner-container{
+    border: 2px solid black;
+    width: 40vw;
+    height: 50vw;
+    margin: 200px auto;
+   /*  position: relative; */
+}
+.box{
+    width: 150px;
+    height: 150px;
+    color: rgb(240, 240, 240);
+    padding: 1rem;
+}
+.absolute{
+    background-color: blue;
+    position: absolute /* static */;
+    top: 0;
+    left: 0/* -10000px */;   /* default according to relative remain in inner container if not spacfy top ,left */
+    /* top: 100px;
+    left: 50px; relative to relative that is inner container */
+    z-index: 1; /* absolute box onthe fixed block */
+}
+.relative{
+    background-color: rgb(238, 113, 24);
+    position: relative /* static */;   /*  bydefault rlative to parent container*/
+    top: 100px; 
+    left: 100px; 
+}
+.fixed{
+    background-color: rgba(41, 167, 9, 0.693);
+    position: fixed ; /*it remain fixed even when we scroll*/
+    top: 100px; 
+    left: 100px; 
+}
+.sticky{
+    background-color: rgba(182, 10, 39, 0.693);
+    position: sticky ; 
+    top: 0; /* scroll hota smay halk neech hota hai */
+    
+}

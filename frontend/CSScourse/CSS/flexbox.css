@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: "Roboto",sans-serif;
+    font-size: 2rem;
+    padding: 20px;
+    min-height: 100vh;
+}
+.main-container{
+    max-width: 800px;
+    min-height: 400px;
+    margin-inline: auto;
+    border: 1px solid black;
+    display: flex;  /* by default horizontally fill hota hai */
+    gap: 1rem; 
+    justify-content: /* space-evenly  *//* space-between *//* space-around */ 
+    center/* flex-end */ /* flex-start */; /* it focus horizontally */
+
+    align-items: center/* flex-end *//* flex-start */; /* if focus vertically */
+    flex-direction: /* column-reverse */row-reverse/* row *//* column */; /* row bydefault */
+
+/*     bydefault thy overflow means not change if space shrink 
+    come out from container
+ */
+   flex-wrap: wrap; /* default value nowrap */
+   flex-flow: row wrap; /* shortend */
+   align-content:space-evenly/* flex-start *//* flex-end */ ;
+}
+.box{
+    height: 100px;
+    /* min-width: 100px; */
+    padding: 0.5rem;
+    color: azure;
+    background-color: black;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center; /* use these properties to center content of box */
+    align-items: center;
+
+    flex-shrink: 1;
+    /* flex-basis: 100px ; */ /* like min width but can change */
+    /* let to shrink below the bases or grow above the bases */
+    flex: 1 1 150px;
+}
+
+.box:nth-child(2){
+    flex-shrink: 2; /* shrink and grow more than other box */
+    flex: 2 2 150px;
+    order: 0; /* bigin,end,sameposition */
+}

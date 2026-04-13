@@ -1,0 +1,37 @@
+body {
+    padding: 25%;
+    font-size: 2rem;
+}
+p{
+    text-decoration: /* underline */ /* overline *//*  line-through */ none;
+    text-transform: /* capitalize */ /* lowercase */ /* uppercase */ none;
+    text-align: /* justify */ /* center */ /* right */ left ;
+    text-indent: 2em;  /* indent the first line */
+    line-height: 1.5;
+
+
+   /*  letter-spacing: 0.1em;   not used much*/
+   /* word-spacing: 0.1em; */
+   /* font-weight:lighter; */
+   font-style: /* italic */ /* oblique */  normal;
+
+
+   font-family: serif;  /* acadamic paper, news paper */
+   font-family: sans-serif; /* on web pages  */
+   font-family: /* monospace */   /* cursive */ fantasy   ;  
+   font-family: 'Courier New', Courier, monospace; 
+   /* fallback fonts if browser not render first */
+   font-family: Arial, Helvetica, sans-serif; /* very common on wed */
+   font-family: Verdana, Geneva, Tahoma, sans-serif;   /* very common on wed */
+   font-family: 'Times New Roman', Times, serif;    /* very common on wed */
+
+
+}
+
+
+
+
+
+
+
+

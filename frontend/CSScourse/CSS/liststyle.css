@@ -1,0 +1,61 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+body {
+    padding: 5% 10%;
+    font-size: 2rem;
+    font-family: "Roboto",sans-serif  ;
+    
+}
+ol{
+    list-style-type:/* none */lower-alpha /* upper-roman *//* decimal-leading-zero */   ;
+    padding: 0;
+}
+ul{
+    list-style-type: square;
+    list-style-position: inside ;
+    padding-left: 2rem;
+    text-align: center;
+    line-height: 1.5;
+    /* list-style: url('../images/check1.png');
+    list-style:  square  url('../images/check1.png') inside; */
+}
+ul li :nth-child(even){
+    color: rebeccapurple;
+}
+ul  ::marker{
+    color: black;
+    font-family: fantasy;
+    font-size: 1.5rem;
+    content: "only $5 >>  ";
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

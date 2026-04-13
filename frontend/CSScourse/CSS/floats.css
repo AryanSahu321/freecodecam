@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+body{
+    font-family: "Roboto",sans-serif;
+    font-size: 2rem;
+}
+.block{
+    width: 30vw;
+    height: 30vw;
+    background-color: black;
+    color: antiquewhite;
+    padding: 1rem;
+   /*  margin-right: 1rem; */
+}
+.left{
+    float: left;
+    margin-right: 1rem;
+}
+.right{
+    float: right;
+    margin-left: 1rem;
+}
+.clear{
+    clear:both;
+}
+section{
+    background-color: beige;
+    border: 2px solid black;
+    padding: 1rem;
+   /*  overflow: auto; increase then size of section to cover the overflow of float block */
+    display: flow-root; /* modern way to solve flow problem */
+    
+}

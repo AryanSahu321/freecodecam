@@ -1,0 +1,28 @@
+html{
+    font-family:'Times New Roman', Times, serif;
+    font-size: 20px;
+    border: 3px solid red;
+}
+
+main{
+    font-family: monospace;
+}
+h1,h2{
+    color:rgb(253, 57, 57)
+} 
+.highlight{
+    text-transform: uppercase;
+    background-color: gold;
+}
+p {
+    color:purple;
+}
+p {
+    color:rgb(8, 49, 196);
+}
+.Diversity{
+    color:rgb(82, 188, 29);
+}
+#Importance {
+    font-style: italic;
+}
