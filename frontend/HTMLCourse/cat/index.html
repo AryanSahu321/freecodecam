@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cat Photo</title>
+</head>
+<body>
+    <h1>Cat Photo App</h1>
+    <main><!-- main in which contain main content there is
+        only one of its type -->
+        <h3>Cat Photo</h3>
+        <p>The Cat is relaxing in couch</p>
+        <p>Click here to get more photos of cats 
+            <a href="https://www.bing.com/images/search?q=relaxing+cat&form=HDRSC3&first=1" target="_blank">link </a><br>
+            link for same page 
+            <a href="#" target="_blank">link </a><br>
+            using image as a link below
+
+        </p>
+        <a href="#" target="_blank"><img src="https://img.freepik.com/premium-photo/cat-vacation-nice-resort-relax-catfriendly-cats-chil_86390-14485.jpg">
+        alt="cat is relaxing"></a>
+
+        <h3>Cat list </h3>
+        <div>
+            <p>Things that cats <em>loves:</em></p>
+            <ul>
+                <li>cat nip </li>
+                <li>laser pointer</li>
+                <li>lasagna</li>
+            </ul>
+            <img src="images/Lasagna.jpeg" alt="mouth watering lasangna" width="400">
+            <p>Things cats <strong>hate</strong>:</p>
+            <ol>
+                <li>water</li>
+                <li>other cats</li>
+                <li>rain</li>
+            </ol>
+            
+            <form action="/submit-cat-photo">
+                
+                <input type="text" placeholder="type text" required><br>
+                <p>types of cats</p>
+                <label for="indoor"><input type="radio" name="indoor-outdoor" id="indoor">indoor </label>
+                
+                <label for="outdoor"><input type="radio" name="indoor-outdoor" id="outdoor">outdoor
+                </label><br>
+                <p>personality of cats</p>
+                <label for="lazy"><input name="personality" id="lazy" type="checkbox" >lasy</label>
+                <label for="energetic"><input name="personality" id="energetic" type="checkbox" >energetic</label>
+                
+                <br><br>
+                <button type="submit">submit</button>
+                <footer>
+                    <small>No copyrite: <a href="https://www.freecodecamp.org/" target="_blank"> freecodecamp link</small> </a>
+                </footer>
+            </form>
+
+        </div>
+        
+
+
+
+    </main>
+    
+</body>
+</html>
