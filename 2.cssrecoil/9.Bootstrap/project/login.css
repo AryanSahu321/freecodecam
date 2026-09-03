@@ -1,0 +1,72 @@
+body {
+  font-family: Montserrat, sans-serif;
+  margin: 0;
+  background: #000;
+  overflow: hidden;
+  color: white;
+  box-sizing: border-box;
+}
+.main {
+  padding-top: 3rem;
+}
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header img {
+  height: 2rem;
+  width: 2rem;
+}
+.form {
+  margin: 0 2.5rem;
+  display: flex;
+  justify-self: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 388px;
+}
+.form h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: content-box;
+  font-size: 48px;
+  margin: 0;
+  padding: 0 2rem;
+
+  /* Added properties below */
+  font-family: "Inter", sans-serif;
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  word-spacing: -4px;
+  white-space: nowrap;
+  width: max-content;
+
+  position: relative;
+  right: 10px;
+}
+.space {
+  height: 24px;
+}
+.input {
+  padding: 0 0 16px;
+}
+.email {
+  display: block;
+  font-size: 13px;
+  margin: 0 0 8px;
+  font-weight: 700;
+}
+.input input {
+  background: #121212;
+  padding: 12px;
+  display: block;
+  inline-size: 100%;
+  box-sizing: border-box; /* Critical: keeps padding inside the 100% width */
+  width: 100%; /* Standard width property instead of inline-size */
+  padding: 14px; /* Balanced inner spacing */
+  border: 1px solid #727272; /* Subtle gray border */
+  border-radius: 4px; /* Smooth rounded corners */
+  outline: none; /* Removes default browser outline */
+}

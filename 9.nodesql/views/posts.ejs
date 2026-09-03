@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    <title>Quara</title>
+  </head>
+  <body>
+    <h1>Quara posts</h1>
+    <p>Total Comments: <%= total %></p>
+    <a href="/posts/new" class="new-post-button">Add New Post</a>
+
+    
+    <% posts.forEach((post) => { %>
+      <div class="post">
+        <h3 class="user">@ <%= post.USERNAME %></h3> <!-- Fixed closing tag and capitalized for Oracle default keys -->
+        <p class="content"><%= post.CONTENT %></p>  
+         <p class="content">id: <%= post.ID %></p> 
+          <a href="/comments/<%= post.ID %>" class="new-post-button">See in detail</a>
+          &nbsp;&nbsp;
+          <a href="/comments/<%= post.ID %>/edit" class="post-update">edit</a>
+           <br>
+           <form action="/comments/<%= post.ID %>?_method=DELETE"  method="post">
+           <button>delete</button>
+           </form>
+
+      </div>
+
+    <% }); %>
+
+
+  </body>
+</html>

@@ -1,0 +1,78 @@
+* {
+  font-family: "Comic Sans MS";
+}
+
+h1,
+h3 {
+  color: #b92b27;
+}
+#login {
+  background-color: white;
+  color: #000;
+}
+#signup {
+  background-color: #b92b27;
+  color: white;
+}
+.upvote {
+  background-color: green;
+  color: white;
+}
+.post a {
+  color: purple;
+  background-color: yellow;
+}
+/* nav ul li a */
+nav a {
+  color: rgb(220, 115, 132);
+}
+
+p + h3 {
+  text-decoration: underline;
+}
+ul > li {
+  color: red;
+}
+div > input {
+  background-color: darksalmon;
+}
+input[type="text"] {
+  color: red;
+}
+input[type="password"] {
+  color: green;
+}
+input[type] {
+  background-color: white;
+}
+button:hover {
+  background: #000;
+  color: white;
+}
+button:active {
+  background-color: darkorchid;
+}
+p:active {
+  font-weight: 600;
+}
+input[type="radio"]:checked + label {
+  color: red;
+}
+
+section:nth-of-type(2n) {
+  background-color: antiquewhite;
+}
+section:nth-of-type(2n-1) {
+  background-color: gainsboro;
+}
+p::selection {
+  background-color: limegreen;
+}
+/* --------------------------------js----------------------------------------------- */
+
+.green {
+  color: green;
+}
+.underline {
+  text-decoration: wavy underline purple;
+}

@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Table</title>
+  </head>
+  <body>
+    <table>
+      <caption>
+        Student Details
+      </caption>
+      <thead>
+        <tr>
+          <th>name</th>
+          <th>rollno</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Aryan</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>JOy</td>
+          <td>2</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>total</td>
+          <td>2 students</td>
+        </tr>
+      </tfoot>
+    </table>
+    <hr />
+
+    <table border="black">
+      <caption>
+        Food Menu
+      </caption>
+      <thead>
+        <tr>
+          <th rowspan="2">Items</th>
+          <th colspan="2">Prise</th>
+        </tr>
+        <tr>
+          <th>INR</th>
+          <th>USD</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Frooty</td>
+          <td>20</td>
+          <td>0.2</td>
+        </tr>
+        <tr>
+          <td>Samosa</td>
+          <td>50</td>
+          <td>0.4</td>
+        </tr>
+        <tr>
+          <td>Chips</td>
+          <td>10</td>
+          <td>0.1</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>Total</td>
+          <td>80</td>
+          <td>1</td>
+        </tr>
+      </tfoot>
+    </table>
+    <hr />
+    <table border="black">
+      <caption>
+        Test table for eye
+      </caption>
+      <tr>
+        <td rowspan="2"></td>
+        <td colspan="2">Average</td>
+
+        <td rowspan="2">Red eye</td>
+      </tr>
+      <tr>
+        <td>Height</td>
+        <td>Weaight</td>
+      </tr>
+      <tr>
+        <td>males</td>
+        <td>0.4</td>
+        <td>400</td>
+        <td>40%</td>
+      </tr>
+      <tr>
+        <td>Female</td>
+        <td>0.5</td>
+        <td>500</td>
+        <td>50%</td>
+      </tr>
+    </table>
+    <hr />
+    <!-- forms --><!--  inputs pcrbsfd  -->
+    <!-- form>div.form-group>label[for="email"]{Email:}+input:email#email -->
+
+    <form action="">
+      <input type="text" name="" id="" placeholder="name" />
+      <input type="password" name="" id="" placeholder="pass" />
+      <input type="date" name="" id="" />
+      <input type="time" name="" id="" />
+      <input type="email" name="" id="" placeholder="email" />
+      <input type="button" value="Click me" />
+      <input type="checkbox" name="" id="" />
+      <input type="color" name="" id="" />
+      <input type="radio" name="" id="" />
+      <input type="submit" value="submit" />
+    </form>
+    <br />
+    <hr />
+    <!-- form>label[for='email']{Email: }+input:email#email -->
+    <p>
+      http://127.0.0.1:5500/server?name=Aryan+Sahu&password=ss&email=aryansahu0612%40gmail.com
+    </p>
+    <form action="/server">
+      <div>
+        <label for="text">enter name</label
+        ><input type="text" name="name" id="text" />
+      </div>
+      <div>
+        <label for="password">password </label
+        ><input type="password" name="password" id="password" />
+      </div>
+      <div>
+        <label for="email">email </label
+        ><input type="email" name="email" id="email" />
+      </div>
+      <button type="button">button</button>
+      <button type="reset">reset</button>
+      <button type="submit">submit</button>
+    </form>
+    <br />
+    <hr />
+    <form action="https://www.bing.com/search">
+      <label for="search">search anyting : </label>
+      <input type="text" name="q" id="search" />
+      <button type="submit">search</button>
+    </form>
+
+    <br />
+    <hr />
+    <form action="https://www.google.com/search">
+      <label for="search">search anyting : </label>
+      <input type="text" name="q" id="search" />
+      <button type="submit">search</button>
+    </form>
+
+    <!-- br+hr+form>(div>(input:c[name='fruit']+label[for=''])*3)+(div>(input:c[name='subject']+label[for=''])*3)+br -->
+
+    <br />
+    <hr />
+    <form action="/server">
+      <div>
+        <input type="checkbox" name="fruit" id="apple" value="apple" />
+        <label for="apple"> apple</label>
+        <input
+          type="checkbox"
+          name="fruit"
+          id="banana"
+          value="banana"
+          checked
+        />
+        <label for="banana"> banana</label>
+        <input type="checkbox" name="fruit" id="grapes" value="grapes" />
+        <label for="grapes"> grapes</label>
+      </div>
+      <div>
+        <input type="radio" name="subject" id="maths" />
+        <label for="maths"> math</label>
+        <input type="radio" name="subject" id="science" value="science" />
+        <label for="science"> science</label>
+        <input type="radio" name="subject" id="bio" value="bio" />
+        <label for="bio"> bio</label>
+      </div>
+      <br />
+      <button type="submit">submit</button>
+
+      <hr />
+      <br />
+      <div>
+        Select Profession:
+        <select name="profession" id="profession">
+          <option value="dev" selected>dev</option>
+          <option value="hacker">hacker</option>
+          <option value="ai">ai</option>
+        </select>
+        <br />
+        <label for="volume">Volume: </label>
+        <input
+          type="range"
+          min="0"
+          max="100"
+          step="10"
+          value="70"
+          name="volume"
+          id="volume"
+        />
+
+        <br /><label for="feedback">provide feedback </label>
+        <textarea
+          name="feedback"
+          rows="5"
+          cols="20"
+          id="feedback"
+          placeholder="feedback"
+        ></textarea>
+
+        <button type="submit">submit</button>
+      </div>
+    </form>
+
+    <hr />
+    <br />
+    <form action="/server">
+      <div>
+        <h3>Registration Form :</h3>
+        <input type="text" name="fname" id="fname" placeholder="fname" />
+        <input type="text" name="lname" id="lname" placeholder="lname" /><br />
+        <label for="gender"> Pleasse select gender: </label>
+        <select name="gender" id="gender">
+          <option value="male">male</option>
+          <option value="female">female</option></select
+        ><br />
+        <label for="agreeTerms"
+          >Do you agree terms:
+          <input
+            type="checkbox"
+            name="agreeTerms"
+            id="agreeTerms"
+            value="Yes I agree"
+            checked
+          />
+          Yes I agree </label
+        ><br />
+        <button type="submit">submit</button>
+      </div>
+    </form>
+    <br />
+
+    <table border="black">
+      <caption>
+        Student Information
+      </caption>
+      <tr>
+        <th rowspan="6">Info</th>
+        <th rowspan="2">Name</th>
+        <th colspan="2">address</th>
+      </tr>
+      <tr>
+        <th>City</th>
+        <th>House</th>
+      </tr>
+      <tr>
+        <td>A</td>
+        <td>Delhi</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>B</td>
+        <td>Mumbai</td>
+        <td>2</td>
+      </tr>
+      <tr>
+        <td>C</td>
+        <td>Jalander</td>
+        <td>3</td>
+      </tr>
+      <tr>
+        <td>D</td>
+        <td>Maysore</td>
+        <td>4</td>
+      </tr>
+    </table>
+
+    <br />
+
+    <form action="/server">
+      <div>
+        <label for="name">Name: </label
+        ><input type="text" name="name" id="name" />
+      </div>
+      <br />
+      <div>
+        Gender:
+        <input type="radio" name="gender" id="male" /><label for="male"
+          >male
+        </label>
+        <input type="radio" name="gender" id="female" /><label for="female"
+          >female
+        </label>
+      </div>
+      <br />
+      <div>
+        Country:
+        <select name="country" id="country">
+          <option value="India">India</option>
+          <option value="France">France</option>
+          <option value="Germany">Germany</option>
+        </select>
+      </div>
+      <br />
+      <div>
+        <label for="Message">Message </label
+        ><textarea name="Message" id="Message"></textarea>
+      </div>
+      <br />
+      <div>
+        <input type="checkbox" name="suscribe" id="suscribe" />
+        <label for="suscribe">Suscribe?</label>
+      </div>
+      <br />
+      <div><button type="submit">sumit</button></div>
+      <br />
+    </form>
+    <br />
+
+    <form action="/server">
+      <h2>Feedback Form</h2>
+      <br />
+      <div>
+        <label for="name">Name: </label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          placeholder="What is your name?"
+        />
+      </div>
+      <br />
+      <div>
+        <label for="email">Email: </label
+        ><input type="email" name="email" id="email" />
+      </div>
+      <br />
+      <div>
+        <label for="massage">Massage: <br /></label>
+        <textarea name="message" rows="5" cols="20" id="message"></textarea>
+      </div>
+      <br />
+      <div>
+        <label for="rate">Rate us for 5:</label> <br />
+        <input type="radio" name="rate" id="1" value="1" /><label for="1"
+          >1</label
+        ><br />
+        <input type="radio" name="rate" id="2" value="2" /><label for="2"
+          >2</label
+        ><br />
+        <input type="radio" name="rate" id="3" value="3" /><label for="3"
+          >3</label
+        ><br />
+        <input type="radio" name="rate" id="4" value="4" /><label for="4"
+          >4</label
+        ><br />
+        <input type="radio" name="rate" id="5" value="5" /><label for="5"
+          >5</label
+        ><br />
+
+        <!-- wrong way -->
+        <!-- <input type="radio" name="rate" id="1" value="1">1 <br>
+        <input type="radio" name="rate" id="2" value="2">2 <br>
+        <input type="radio" name="rate" id="3" value="3">3 <br>
+        <input type="radio" name="rate" id="4" value="4">4 <br>
+        <input type="radio" name="rate" id="5" value="5">5 <br>
+        </label> -->
+      </div>
+      <br />
+      <div><button type="submit">Send Your Message!</button></div>
+    </form>
+  </body>
+</html>

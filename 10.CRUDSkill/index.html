@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Civic Issue Reporting Portal</title>
+    <style>
+      :root {
+        --bg: #0f172a;
+        --card-bg: #1e293b;
+        --primary: #3b82f6;
+        --danger: #ef4444;
+        --text: #f8fafc;
+        --text-muted: #94a3b8;
+        --border: #334155;
+      }
+      body {
+        font-family:
+          system-ui,
+          -apple-system,
+          sans-serif;
+        background-color: var(--bg);
+        color: var(--text);
+        margin: 0;
+        padding: 20px;
+      }
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      h1 {
+        margin-bottom: 8px;
+      }
+      .subtitle {
+        color: var(--text-muted);
+        margin-top: 0;
+        margin-bottom: 24px;
+      }
+      .card {
+        background: var(--card-bg);
+        padding: 20px;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        margin-bottom: 20px;
+      }
+      form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .full-width {
+        grid-column: span 2;
+      }
+      input,
+      select,
+      textarea,
+      button {
+        background: #0b1120;
+        border: 1px solid var(--border);
+        color: #fff;
+        padding: 10px;
+        border-radius: 6px;
+        font-size: 14px;
+      }
+      textarea {
+        resize: vertical;
+        min-height: 70px;
+      }
+      button {
+        cursor: pointer;
+        font-weight: 600;
+        background: var(--primary);
+        border: none;
+        transition: opacity 0.2s;
+      }
+      button:hover {
+        opacity: 0.9;
+      }
+      .btn-danger {
+        background: var(--danger);
+      }
+      .btn-edit {
+        background: #f59e0b;
+        color: #000;
+      }
+      .filters {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 16px;
+      }
+      .issue-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 16px;
+        margin-bottom: 12px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+      .badge {
+        display: inline-block;
+        padding: 3px 8px;
+        border-radius: 4px;
+        font-size: 12px;
+        font-weight: 600;
+        margin-right: 6px;
+      }
+      .badge-status {
+        background: #0369a1;
+      }
+      .badge-priority-High {
+        background: #b91c1c;
+      }
+      .badge-priority-Medium {
+        background: #b45309;
+      }
+      .badge-priority-Low {
+        background: #15803d;
+      }
+      .issue-actions {
+        display: flex;
+        gap: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Civic Issue Reporting System</h1>
+      <p class="subtitle">
+        Submit, track, and manage civic and public infrastructure complaints.
+      </p>
+
+      <!-- FORM: CREATE / UPDATE -->
+      <div class="card">
+        <h3 id="formTitle">Report an Issue</h3>
+        <form id="issueForm">
+          <input type="hidden" id="issueId" />
+          <input
+            type="text"
+            id="title"
+            placeholder="Issue Title (e.g., Pothole, Broken Streetlight)"
+            required
+            class="full-width"
+          />
+          <textarea
+            id="description"
+            placeholder="Provide detailed description and landmark/location..."
+            required
+            class="full-width"
+          ></textarea>
+
+          <select id="category" required>
+            <option value="Roads & Infrastructure">
+              Roads & Infrastructure
+            </option>
+            <option value="Sanitation & Garbage">Sanitation & Garbage</option>
+            <option value="Electricity & Lighting">
+              Electricity & Lighting
+            </option>
+            <option value="Water Supply & Drainage">
+              Water Supply & Drainage
+            </option>
+          </select>
+
+          <select id="priority" required>
+            <option value="Low">Priority: Low</option>
+            <option value="Medium">Priority: Medium</option>
+            <option value="High">Priority: High</option>
+          </select>
+
+          <select id="status" class="full-width">
+            <option value="Reported">Status: Reported</option>
+            <option value="In Progress">Status: In Progress</option>
+            <option value="Resolved">Status: Resolved</option>
+          </select>
+
+          <button type="submit" id="submitBtn" class="full-width">
+            Submit Complaint
+          </button>
+          <button
+            type="button"
+            id="cancelBtn"
+            class="full-width"
+            style="display: none; background: #475569"
+          >
+            Cancel Edit
+          </button>
+        </form>
+      </div>
+
+      <!-- READ / FILTER CONTROLS -->
+      <div class="filters">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search complaints..."
+          style="flex: 1"
+        />
+        <select id="filterCategory">
+          <option value="ALL">All Categories</option>
+          <option value="Roads & Infrastructure">Roads & Infrastructure</option>
+          <option value="Sanitation & Garbage">Sanitation & Garbage</option>
+          <option value="Electricity & Lighting">Electricity & Lighting</option>
+          <option value="Water Supply & Drainage">
+            Water Supply & Drainage
+          </option>
+        </select>
+      </div>
+
+      <!-- LIST OF ISSUES -->
+      <div id="issueList"></div>
+    </div>
+
+    <script>
+      // Initial State (Read from LocalStorage or seed defaults)
+      let issues = JSON.parse(localStorage.getItem("civic_issues")) || [
+        {
+          id: "1",
+          title: "Deep pothole on Main Road near Metro Gate 2",
+          description:
+            "Large pothole causing vehicle damage and traffic congestion during peak hours.",
+          category: "Roads & Infrastructure",
+          priority: "High",
+          status: "In Progress",
+          createdAt: "2026-08-22",
+        },
+        {
+          id: "2",
+          title: "Garbage overflow near community center",
+          description: "Dustbins have not been cleared for over 3 days.",
+          category: "Sanitation & Garbage",
+          priority: "Medium",
+          status: "Reported",
+          createdAt: "2026-08-23",
+        },
+      ];
+
+      const form = document.getElementById("issueForm");
+      const issueIdInput = document.getElementById("issueId");
+      const titleInput = document.getElementById("title");
+      const descInput = document.getElementById("description");
+      const categoryInput = document.getElementById("category");
+      const priorityInput = document.getElementById("priority");
+      const statusInput = document.getElementById("status");
+      const submitBtn = document.getElementById("submitBtn");
+      const cancelBtn = document.getElementById("cancelBtn");
+      const formTitle = document.getElementById("formTitle");
+      const issueList = document.getElementById("issueList");
+      const searchInput = document.getElementById("searchInput");
+      const filterCategory = document.getElementById("filterCategory");
+
+      function saveAndRender() {
+        localStorage.setItem("civic_issues", JSON.stringify(issues));
+        renderIssues();
+      }
+
+      // CREATE / UPDATE Operation
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const id = issueIdInput.value;
+
+        if (id) {
+          // Update
+          const index = issues.findIndex((item) => item.id === id);
+          if (index !== -1) {
+            issues[index] = {
+              ...issues[index],
+              title: titleInput.value.trim(),
+              description: descInput.value.trim(),
+              category: categoryInput.value,
+              priority: priorityInput.value,
+              status: statusInput.value,
+            };
+          }
+          resetForm();
+        } else {
+          // Create
+          const newIssue = {
+            id: Date.now().toString(),
+            title: titleInput.value.trim(),
+            description: descInput.value.trim(),
+            category: categoryInput.value,
+            priority: priorityInput.value,
+            status: statusInput.value,
+            createdAt: new Date().toISOString().split("T")[0],
+          };
+          issues.unshift(newIssue);
+        }
+
+        form.reset();
+        saveAndRender();
+      });
+
+      // READ / Render Operation
+      function renderIssues() {
+        const search = searchInput.value.toLowerCase();
+        const cat = filterCategory.value;
+
+        const filtered = issues.filter((issue) => {
+          const matchesSearch =
+            issue.title.toLowerCase().includes(search) ||
+            issue.description.toLowerCase().includes(search);
+          const matchesCat = cat === "ALL" || issue.category === cat;
+          return matchesSearch && matchesCat;
+        });
+
+        if (filtered.length === 0) {
+          issueList.innerHTML = `<p style="color: var(--text-muted); text-align: center; padding: 20px;">No complaints found.</p>`;
+          return;
+        }
+
+        issueList.innerHTML = filtered
+          .map(
+            (issue) => `
+        <div class="issue-card">
+          <div>
+            <div style="margin-bottom: 6px;">
+              <span class="badge badge-status">${issue.status}</span>
+              <span class="badge badge-priority-${issue.priority}">${issue.priority} Priority</span>
+              <span style="font-size: 12px; color: var(--text-muted);">${issue.category} • ${issue.createdAt}</span>
+            </div>
+            <h3 style="margin: 0 0 6px 0;">${issue.title}</h3>
+            <p style="margin: 0; color: #cbd5e1; font-size: 14px;">${issue.description}</p>
+          </div>
+          <div class="issue-actions">
+            <button class="btn-edit" onclick="startEdit('${issue.id}')">Edit</button>
+            <button class="btn-danger" onclick="deleteIssue('${issue.id}')">Delete</button>
+          </div>
+        </div>
+      `,
+          )
+          .join("");
+      }
+
+      // EDIT helper
+      window.startEdit = function (id) {
+        const issue = issues.find((item) => item.id === id);
+        if (!issue) return;
+
+        issueIdInput.value = issue.id;
+        titleInput.value = issue.title;
+        descInput.value = issue.description;
+        categoryInput.value = issue.category;
+        priorityInput.value = issue.priority;
+        statusInput.value = issue.status;
+
+        formTitle.innerText = "Edit Issue Details";
+        submitBtn.innerText = "Update Complaint";
+        cancelBtn.style.display = "block";
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      };
+
+      function resetForm() {
+        issueIdInput.value = "";
+        form.reset();
+        formTitle.innerText = "Report an Issue";
+        submitBtn.innerText = "Submit Complaint";
+        cancelBtn.style.display = "none";
+      }
+
+      cancelBtn.addEventListener("click", resetForm);
+
+      // DELETE Operation
+      window.deleteIssue = function (id) {
+        if (confirm("Are you sure you want to remove this complaint?")) {
+          issues = issues.filter((item) => item.id !== id);
+          saveAndRender();
+        }
+      };
+
+      searchInput.addEventListener("input", renderIssues);
+      filterCategory.addEventListener("change", renderIssues);
+
+      renderIssues();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,94 @@
+*{
+    font-family: 'Courier New';
+}
+h1,h3{
+    color: #f52936;
+}
+#login{
+    background-color: wheat;
+}
+#signup{
+    background-color:#f52936;
+    color: wheat;
+}
+.upvote{
+    background-color: greenyellow;
+}
+.follow{
+    background-color: yellow;
+    color: purple;;
+}
+/* Decendent selectoi */
+nav ul li a{
+    color: hotpink;
+}
+/* Adjacent combinator */
+.upvote+button{
+    background-color: cornflowerblue;
+}
+/* Child selector */
+div>input{
+    background-color: darksalmon;
+   
+}
+/* attribute color */
+input[type="text"]{
+    color: rgb(89, 8, 81);
+}
+input[type="password"]{
+    color: green;
+}
+input[type]{
+    background-color: #fff;
+}
+
+/* pseudo class */
+button:hover{
+    color: white;
+    background-color: black;
+}
+h3:hover{
+    text-decoration: underline;
+}
+button:active{ /* on click */
+    background-color: red;
+    color: white;
+}
+p:active{
+    font-weight: bold;
+    color: green;
+}
+input[type="radio"]:checked+label{
+    color: red;
+    font-weight: bold;
+}
+div:nth-of-type(/* 2n */ 2){
+    background-color: rgb(228, 157, 81,0.5);
+}
+
+/* enabled & disable */
+form:enabled{
+    background-color: skyblue;
+}
+/* pseudo element */
+h1::first-letter{
+    color: orange;
+}
+p::first-line{
+    color: #e71414;
+}
+p::selection{
+    background-color: lawngreen;
+}
+/* specificity */
+/* input & button do not inherit properties 
+we have to spacify it
+*/
+input,button{
+    background-color: inherit;
+}
+
+/* using inspect for better styling */
+/* color pallet */
+
+/* width,height,border .. inherit nahi hota */

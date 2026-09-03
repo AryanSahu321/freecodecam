@@ -1,0 +1,7 @@
+Property Feature,           inline,                  block,                inline-block
+Line Behavior,              Sits on the same line,   Forces a new line,    Sits on the same line
+Respects Explicit
+Width/Height,               No,                      Yes,                  Yes
+Fills Parent 
+Width Automatically,        No (fits content),       Yes (100% width),     No (fits content)
+Vertical Margins/Padding,   Overlaps adjacent items, Pushes adjacent items,Pushes adjacent items

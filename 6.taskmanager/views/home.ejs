@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Manager</title>
+     <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+    <h2>Task</h2>
+    
+   <ol>
+  <% tasks.forEach((task) => { %>
+    
+    <li>
+      <strong>Title:</strong> <%= task.title %><br>
+      <strong>Description:</strong> <%= task.description %><br>
+      <strong>Due Date:</strong> <%= task.dueDate %><br>
+    
+    <% if(task.assignedManager) {%>
+    
+      <strong>Assigned Manager:</strong> <%= task.assignedManager %><br>
+      <strong>Escalation Level:</strong> <%= task.escalationLevel %>
+      </li>
+      <%}%>
+    <br> <!-- Adds a clean visual spacing break between tasks -->
+  <% }); %>
+</ol>
+
+    
+    <a href="/api/task"><button>Create a Task</button></a>
+
+    <hr>
+
+     <h1>POST request</h1>
+    <form method="post" action="http://localhost:8082/api/task">
+      <label for="title"
+        >title: <input type="text" name="title" id="title"
+      /></label>
+      <label for="description"
+        >description: <input type="text" name="description" id="description"
+      /></label>
+      <label for="dueDate"
+        >dueDate: <input type="date" name="dueDate" id="dueDate"
+      /></label>
+      <br><br>
+      <label for="assignedManager"
+        >assignedManager: <input type="text" name="assignedManager" id="assignedManager"
+      /></label>
+
+       <label for="escalationLevel"
+        >escalationLevel: <input type="number" name="escalationLevel" id="escalationLevel"
+      /></label>
+
+      <button type="submit">submit</button>
+      <br><br><br><br><br><br><br><br>
+
+    <script src="/js/script.js"></script>
+  </body>
+</html>

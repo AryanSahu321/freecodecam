@@ -1,0 +1,62 @@
+body {
+    padding: 0;
+    font-size: 100px;
+}
+p{
+    color: rgb(24, 18, 2);
+    background-color: rgb(237, 221, 221);
+
+
+    text-decoration: underline /* overline *//*  line-through */ /* none */;
+    text-decoration: red /* dotted *//* double */ /* wavy */ dashed underline;
+
+    text-transform: /* capitalize */ /* lowercase */ /* uppercase */ none;
+    text-align: /* justify */ center /* right */ /* left */ ; /* alignment with respect to parent element not screen  */
+    font-weight: normal /* bold */ /* 900 */ ; /* 100-900  and  normal, bold*/
+    text-indent: 1em;  /* indent the first line */
+    line-height: /* normal */ 1.5;   /*  1.5*normal */
+
+
+    letter-spacing: /* 0.1em */ /* 10px */ normal;   
+   /* word-spacing: 0.1em; */
+   /* font-weight:lighter; relative to parent */
+   
+   /* font-size units  */
+   /* font-size: 30px;  */  /*  not used in responsive websites */
+    font-size: 2rem;  /* root element font size  16px in all browser
+                        2rem= 2*16px*/
+    
+    
+
+   font-style: /* italic */ /* oblique */  normal;
+   font-family: serif;  /* acadamic paper, news paper */
+   font-family: sans-serif; /* on web pages  */
+   font-family: /* monospace */   /* cursive */ fantasy   ;  
+   font-family: 'Courier New', Courier, monospace; 
+   /* fallback fonts if browser not render first */
+   font-family: Arial, Helvetica, sans-serif; /* very common on wed */
+   font-family: Verdana, Geneva, Tahoma, sans-serif;   /* very common on wed */
+   font-family: 'Times New Roman', Times, serif;    /* very common on wed */
+
+}
+div{
+    font-size: 0.5em;  /* inconsistent sizing when nested elements */
+    text-align: center;
+}
+
+span{
+    font-family: league sparten,monospace,serif;
+    color: #ffa511;
+    text-align: center;
+    font: 55px 900;
+    letter-spacing: 2px;
+    line-height: 1.5;
+    text-decoration: blue double underline ;
+    text-transform: uppercase;
+}
+
+
+
+
+
+

@@ -1,0 +1,180 @@
+.alpha{
+    border: 1px solid #000;
+    height: 100px;
+    width: 100px;
+    background-color: #90ee9000;
+}
+.opacity{
+    border: 1px solid #000;
+    height: 100px;
+    width: 100px;
+    background-color: cornflowerblue;
+    opacity: 0.5;
+
+} 
+.transition{
+    border: 1px solid #000;
+    height: 100px;
+    width: 100px;
+    background-color: rgb(237, 178, 100);
+    margin: 0 auto; 
+    margin-top: 1%;
+    transition: margin-top 2s ease-out 0.2s;
+    
+    /* transition-duration: 1s ;
+    transition-delay: 0.5s; */
+
+}
+.transition:hover{
+   /*  border-radius: 50%;
+    background-color: lightgreen; */
+    margin-top: 400px;
+    background-color: pink;
+}
+.transform{
+    margin-top: 100px;
+    
+}
+.common{
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    background-color: lightgreen;
+    border: 2px solid #000;
+    margin: 10px auto; 
+    
+}
+.common:nth-of-type(2n){
+    background-color: #f7db6a;
+}
+.common:nth-of-type(3n){
+    background-color: #ebb02d;
+}
+.div-1{
+    transform: rotate(45deg);/*  clockwise */
+}
+.div-2{
+    transform: scale(0.5);
+}
+.div-3{
+    transform: translateX(-100px);
+}
+.div-4{
+    transform: skew(30deg); 
+}
+.div-5{
+    transform: rotate(30deg) translateX(100px) ;
+}
+.shadow{
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    background-color: lightgreen;
+    margin: 10px auto; 
+    box-shadow: 2px 2px 8px rgb(22, 22, 3);
+}
+.image{
+    width: 500px;
+    height: 200px;
+    background-color: lightgreen;
+    margin: 10px auto; 
+    background-image: url(images/whiteblocks.jpg); /* jaroori nahi ki size fit ho */
+    background-repeat: no-repeat;
+    background-size: 40px 200px;
+    
+}
+.card{
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    border: 2px solid #000;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px black;
+    transition: 1s;
+    display: inline-block;
+   
+}
+.card img{ 
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+}
+.desc{
+    padding: 0 2px 0 2px;
+}
+
+.card:hover{
+    box-shadow: 0 8px 16px black;
+    transform: translateY(10px);
+}
+.commondiv {
+    height: 100px;
+    width: 100px;
+    background-color: green;
+    text-align: center;
+    border: 1px solid #000;
+    margin: 20px;
+    display: inline-block;
+}
+.static{
+    background-color: yellow;
+    position: static;
+    top: 100px;
+    left: 100px;
+}
+.absolute{
+    background-color: yellow;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+}
+.relative{
+    background-color: yellow;
+    position: relative;
+    top: 100px;
+    left: 100px;
+}
+.fixed{
+     background-color: yellow;
+    position: fixed;
+    top: 100px;
+    left: 100px;
+}
+
+.smile{
+    background-color: #dfc9c9;
+    height: 300px;
+    width: 300px;
+    margin: 100px auto;
+    
+    
+}
+.face{
+    background-color: rgb(212, 255, 0);
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    position: relative;
+    top: 25px;
+    left: 25px;
+    
+}
+.eye{
+    background-color: black;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    position: relative;
+    top: 60px;
+    display: inline-block;
+    margin-left: 60px;
+}
+.mouth{
+    background-color: rgb(223, 77, 48);
+    height: 40px;
+    width: 90px;
+    border-radius: 0 0 20px 20px;
+    position: relative;
+    top: 120px;
+    left: 80px;
+
+}

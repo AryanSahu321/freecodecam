@@ -1,0 +1,14 @@
+p.content-box{
+    
+    padding: 2rem;
+    width: 200px;
+    border: 2px solid red ;
+    box-sizing: content-box;
+}
+p.border-box{
+    
+    padding: 2rem;
+    width: 200px;
+    border: 2px solid blue ;
+    box-sizing: border-box;
+}

@@ -1,0 +1,20 @@
+<!-- views/show.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    <title>Complaint Details</title>
+  </head>
+  <body>
+    <h1>Complaint Details</h1>
+    <div class="post">
+      <h3 class="user">@ <%= comment.USERNAME %></h3>
+      <p class="content">Complaint: <%= comment.CONTENT %></p>
+      <p class="content">ID: <%= comment.ID %></p>
+    </div>
+    <br />
+    <a href="/" class="new-comment-button">Back to complaints</a>
+  </body>
+</html>

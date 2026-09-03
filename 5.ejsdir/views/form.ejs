@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>register</title>
+  </head>
+  <body>
+    <h1>GET request</h1>
+    <form action="http://localhost:8081/register">
+      <label for="name"
+        >username: <input type="text" name="name" id="name"
+      /></label>
+      <label for="passward"
+        >passward: <input type="password" name="password" id="password"
+      /></label>
+      <button type="submit">submit</button>
+    </form>
+
+    <h1>POST request</h1>
+    <form method="post" action="http://localhost:8081/register">
+      <label for="name"
+        >username: <input type="text" name="name" id="name"
+      /></label>
+      <label for="passward"
+        >passward: <input type="password" name="password" id="password"
+      /></label>
+      <button type="submit">submit</button>
+    </form>
+  </body>
+</html>

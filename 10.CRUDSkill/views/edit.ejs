@@ -1,0 +1,17 @@
+<!-- views/edit.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update Complaint</title>
+  </head>
+  <body>
+    <form method="POST" action="/comments/<%=post.ID%>?_method=PATCH">
+      <p>Complaint ID: <%=post.ID%></p>
+      <p>Username: <%= post.USERNAME%></p>
+      <textarea name="content"><%= post.CONTENT %></textarea><br /><br />
+      <input type="submit" value="Submit Update" />
+    </form>
+  </body>
+</html>

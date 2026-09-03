@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+/* bigin reset */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+img{
+    display: block;/*  agar block nahi banaya toh halki si line end ma rahagi */
+}
+/* end reset */
+
+/* utility classes */
+.nowrap{
+    white-space: nowrap;
+}
+
+.offscreen{
+    position: absolute;
+    left: -1000000px ;
+}
+
+/* end utility class */
+
+
+body{
+    font-family: "Nunito","Roboto",sans-serif;
+    min-height: 100vh;
+}
+
+.container{
+
+    background-color: rgb(251, 210, 156);
+    background-image: url('../images/whiteblocks.jpg')  ;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+   
+
+}
+.hero{
+    border: 2px solid black;
+    padding: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px;
+
+
+    background-color: hsla(0, 4%, 13%, 0.403); /* background image should be darker */
+    background-image: url('../images/whiteblocks.jpg')  ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: multiply; /* magic line mix bg-color and bg-img*/
+    
+}
+.h1{
+    font-size: 500%;
+    color: aliceblue;
+    text-shadow: 5px 2px 5px black;  /* move left, move bottem,blluriness  */
+    /* background-color: rgba(0, 0, 0, 0.403);
+    padding: 0.25rem;
+    border-radius: 10px; */
+}
+.profile-pic-figure{
+    width: 50%;
+}
+.profile-pic-figure  img{
+    width: 100%;
+    height: auto;
+    min-width: 100px;
+    border: 5px double gray;
+    border-radius: 50%;
+}
+.example{
+    margin-top: 1rem;
+    padding-left: 20px;
+    border: 1px solid red;
+}
+
+.example img{
+    width: 25%;
+    height: auto;  /* height is tarah sa set hogi ki image
+                   different screen par stretched nahi lagagi */
+}

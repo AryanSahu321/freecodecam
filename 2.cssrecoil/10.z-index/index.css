@@ -1,0 +1,17 @@
+.box{
+    height: 200px;
+    width: 200px;
+    border: 1px solid #000;
+    background-color: pink;
+}
+.b1{
+    background-color: aquamarine;
+    position: relative;
+    z-index: 1;
+}
+.b2{
+    background-color: darkgoldenrod;
+    position: relative;
+    bottom: 20px;
+    z-index: 1;
+} 

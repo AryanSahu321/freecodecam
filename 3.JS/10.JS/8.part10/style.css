@@ -1,0 +1,9 @@
+form {
+  min-height: 100px; /* smaller height */
+  overflow: scroll; /* enable vertical scrolling */
+}
+
+div {
+  height: 50px;
+  width: 50px;
+}

@@ -1,0 +1,323 @@
+### Page 1: MongoDB Basics & CRUD Operations
+
+**Collections & Documents**
+*(Comparing with SQL makes it easy to remember)*
+
+* **Document:** MongoDB stores data in the form of documents (BSON format).
+* **Collection:** MongoDB stores documents inside Collections.
+
+| SQL (Relational DB) | MongoDB |
+| --- | --- |
+| Database | Database |
+| Tables | Collections |
+| Rows / Tuples | Documents (One Document = `{ Key: Value pairs }`) |
+
+> *Tip: Don't just memorize—understand the structural difference.*
+
+---
+
+**CRUD Operations: Create & Read**
+
+* **Insert Single Document:**
+```javascript
+db.collection_name.insertOne({ name: 'aryan', age: 19 })
+
+```
+
+
+* `{ name: 'aryan', age: 19 }` is an Object / Document.
+* MongoDB automatically generates and assigns a Primary Key (`_id`) to this document.
+
+
+* **SQL vs MongoDB Schema Behavior:**
+* In **SQL**, you must define a strict schema (table attributes and types) before inserting data.
+* In **MongoDB**, documents in the same collection can have dynamic attributes.
+* A collection is automatically created upon storing the first document.
+
+
+* **Insert Multiple Documents:**
+```javascript
+db.student.insertMany([ { ... }, { ... } ]) // Array of objects
+
+```
+
+
+* **Read / Query Documents:**
+```javascript
+db.student.find()
+db.collection.findOne({ key: value }) // Single condition
+
+```
+
+
+* Multiple search criteria can be passed as comma-separated key-value pairs inside the query object.
+
+
+* **`find()` vs `findOne()`:**
+* `find()` returns a **Cursor** (an iterable pointer to the matching documents).
+* `findOne()` returns the **actual first matching document** (object).
+
+
+
+---
+
+### Page 2: Query Operators & Update Operations
+
+**Comparison Operators**
+
+* **Syntax & Examples:**
+```javascript
+// Get data of students having marks greater than 75
+db.student.find({ marks: { $gt: 75 } })
+
+// Match any value inside an array (case-sensitive)
+db.student.find({ city: { $in: ["Delhi", "Mumbai"] } })
+
+```
+
+
+* **Operator Reference:**
+* `$eq`: Equal to (`=`)
+* `$ne`: Not equal to (`!=`)
+* `$gt`: Greater than (`>`)
+* `$gte`: Greater than or equal to (`>=`)
+* `$lt`: Less than (`<`)
+* `$lte`: Less than or equal to (`<=`)
+* `$in`: Matches any value specified in an array
+* `$nin`: Matches none of the values specified in an array
+
+
+
+---
+
+**Logical Operators**
+
+* **Syntax Example:**
+```javascript
+db.student.find({ $or: [ { marks: { $gt: 75 } }, { city: "Delhi" } ] })
+
+```
+
+
+* **Operator Reference:**
+* `$and`: Joins query clauses with a logical AND
+* `$or`: Joins query clauses with a logical OR
+* `$not`: Inverts the effect of a query expression
+* `$nor`: Joins query clauses with a logical NOR
+
+
+
+---
+
+**Update in MongoDB**
+
+```javascript
+db.collection.updateOne(<filter>, <update>, <options>)
+
+```
+
+* **Common Update Operators:**
+* `$set`: Modifies/updates the specified value of a field.
+* `$unset`: Removes the specified field from a document.
+* `$addFields`: Adds new fields/attributes to documents.
+* `$project`: Reshapes a document stream (selects, adds, or renames fields).
+* `$replaceRoot` / `$replaceWith`: Replaces the entire input document with a specified embedded document.
+
+
+
+---
+
+### Page 3: Nested Queries, Deletions, & Mongoose
+
+**Update & Replace Variants**
+
+* `db.collection.updateMany(<filter>, <update>)`
+* `db.collection.replaceOne(<filter>, <newDocument>)`
+
+**Querying Nested Objects**
+
+* To query nested fields (`{ key: object }`), enclose the path in quotes (dot notation):
+```javascript
+db.student.find({ "performance.marks": 88 })
+
+```
+
+
+
+---
+
+**Delete in MongoDB**
+
+* **Delete Single / Multiple:**
+```javascript
+db.student.deleteOne({ state: "Haryana" })
+db.student.deleteMany({ marks: { $lt: 75 } })
+
+```
+
+
+* **Dropping a Database:**
+```javascript
+// Clean up collection data first, then drop the database:
+db.student.deleteMany({})
+db.dropDatabase()
+
+```
+
+
+
+---
+
+**Mongoose (ODM)**
+
+Mongoose is an Object Data Modeling (ODM) library for MongoDB and Node.js (`mongoosejs.com`).
+
+* **Connection:**
+```javascript
+await mongoose.connect("mongodb://127.0.0.1:27017/test");
+
+```
+
+
+* **Schema:**
+Defines the overall structure, constraints, datatypes, and validation rules for documents within a collection (equivalent to defining table structure in SQL).
+* **Models:**
+A Model is a constructor class compiled from a Schema used to create and query documents.
+```javascript
+const User = mongoose.model("User", userSchema);
+
+```
+
+
+* MongoDB automatically pluralizes and lowercases the model name to determine the collection name:
+* `User` $\rightarrow$ `users`
+* `Product` $\rightarrow$ `products`
+
+
+------ 
+
+### Section 1: Mongoose CRUD Operations (Image 1)
+
+**Insert Operations**
+
+```javascript
+// 1. Creating and saving a single document instance
+const user2 = new User({ ... });
+user2.save();
+
+// 2. Inserting multiple documents at once
+User.insertMany([ { ... }, { ... } ]);
+
+```
+
+**Mongoose Operation Buffering**
+
+* Mongoose uses **Operation Buffering**, allowing you to use models (creating collections, performing queries, etc.) immediately without waiting for the database connection to complete.
+* We define model operations outside connection callbacks; we do not need to wrap everything inside `.then()` callbacks (unlike older drivers like Oracle DB where operations had to be written strictly inside/after the connection was built).
+
+---
+
+**Find (Read) Operations**
+
+* `Model.find()`: Returns a Query object. It is not a native JavaScript Promise, but it is **thenable** (you can use `.then()` or `await` with it).
+* `Model.findOne()`: Returns the actual first matching document object.
+* `Model.findById("678...df9")`: Finds a document by its unique MongoDB `_id`.
+
+---
+
+**Update Operations**
+
+* `User.updateOne({ filter }, { update })` & `User.updateMany({ filter }, { update })`: Both return a thenable query result containing execution metadata (like matched/modified count).
+* `User.findOneAndUpdate(filter, update, options)`:
+* By default, it finds the document, returns the **old (pre-update) version**, and then applies the update.
+* To return the modified document instead, pass the option: `{ new: true }`.
+
+
+* `User.findByIdAndUpdate(id, update, options)`: Similar to `findOneAndUpdate`, but targets the document directly by ID.
+
+---
+
+### Section 2: Delete Operations & Schema Validation (Image 2)
+
+**Delete Operations**
+
+* `User.deleteOne()` & `User.deleteMany()`: Return the count/status of deleted documents.
+* `User.findOneAndDelete()` & `User.findByIdAndDelete()`: Return the actual document that was deleted.
+
+---
+
+**Schema Validation & Type Casting**
+
+* **Validation Concept:** In SQL, schemas define table columns, data types, and constraints; in Mongoose, validations act as constraints for MongoDB documents.
+* **Database Creation Note:** Creating a collection permanently saves the database name (e.g., executing `use amazon` followed by creating a collection will persist `amazon` in `show dbs`).
+* **Type Casting vs. Validation Errors:**
+* If a schema path defines `{ type: Number }`:
+* Passing a convertible string like `"299"` will be automatically cast into the number `299` without throwing an error.
+* Passing a non-convertible string (e.g., `"abc"`) causes casting to fail, and Mongoose raises a validation error.
+
+
+
+
+
+---
+
+### Section 3: Mongoose Schema Types & Options (Images 3, 4, 5, 6)
+
+**General Schema Type Options**
+
+* `required`: Boolean or function; adds a required validator for this property.
+* `default`: Any or function; sets a default value or returns one from a function.
+* `select`: Boolean; sets default projection (include/exclude) in queries.
+* `validate`: Function; defines a custom validator function.
+* `get`: Function; custom getter using `Object.defineProperty()`.
+* `set`: Function; custom setter using `Object.defineProperty()`.
+* `alias`: String; defines a virtual field that gets/sets this path.
+* `immutable`: Boolean; prevents changing the field value unless `isNew: true`.
+* `transform`: Function; invoked when calling `.toJSON()` or `JSON.stringify()`.
+
+---
+
+**Indexes**
+
+* `index`: Boolean; defines an index on this property.
+* `unique`: Boolean; defines a unique index (specifying `index: true` is optional when `unique: true` is set).
+* `sparse`: Boolean; defines a sparse index.
+
+```javascript
+const schema2 = new Schema({
+  test: {
+    type: String,
+    index: true,
+    unique: true
+  }
+});
+
+```
+
+---
+
+**Type-Specific Validators & Options**
+
+* **String:**
+* `lowercase`: Boolean; automatically calls `.toLowerCase()`.
+* `uppercase`: Boolean; automatically calls `.toUpperCase()`.
+* `trim`: Boolean; automatically calls `.trim()`.
+* `match`: RegExp; validates that the value matches a regular expression.
+* `enum`: Array; validates that the value is present in the provided list.
+* `minLength` / `maxLength`: Number; sets minimum/maximum string length constraints.
+* `populate`: Object; default population options.
+
+
+* **Number:**
+* `min` / `max`: Number; checks minimum and maximum value bounds.
+* `enum`: Array; checks if the number is strictly equal to a value in the array.
+* `populate`: Object; default population options.
+
+
+* **Date:**
+* `min` / `max`: Date; minimum and maximum date boundaries.
+* `expires`: Number or String; creates a TTL (Time-To-Live) index in seconds.
+
+
+* **ObjectId:**
+* `populate`: Object; sets default populate options for referenced documents.

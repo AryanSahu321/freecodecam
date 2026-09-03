@@ -1,0 +1,16 @@
+.transition {
+  height: 100px;
+  width: 100px;
+  border: 3px solid black;
+  border-radius: 50%;
+  background-color: blueviolet;
+  position: relative;
+  left: 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 2s ease-in 0.5s;
+}
+.transition:hover {
+  transform: scale(2) /*  rotate(360deg) translate(40px, 50px) skew(50px) */;
+}

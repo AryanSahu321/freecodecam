@@ -1,0 +1,27 @@
+ 
+ !+enter  -file ko .html sa save katne ka bad  hi chalaga
+ ctrl+/    create html template
+
+p*5>lorem20+ enter -create 5 paragraph with 20 words each
+
+div.container.el+ enter     -creates  <div class="container el"></div>
+
+P*5>{$. }+ enter  -creates              <P>1. </P>
+                                        <P>2. </P>
+                                        <P>3. </P>
+                                        <P>4. </P>
+                                        <P>5. </P> 
+shift+alt+A     -comment out  the selected code and visa versa
+win+.           - opens emoji box on vscode
+ctrl+,         - opens setting 
+ in setting type "auto save onwindow change" and select onwindow change it reduce time to refresh browse to see effect of changes 
+
+ select a code block and click tab - it move all lines concurrently
+
+ select term in code click ctrl+d if same term present is get selected to if you change one other change automatically
+
+ 
+ ------------------------------------
+MDN for ultimate resources of notes 
+and depth and fast google search than gemini
+------------------------------------

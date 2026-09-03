@@ -1,0 +1,63 @@
+### CONTEXT & TASK
+ I have provided a complete reference codebase (`CRUDskill.zip` / `dbconnect.js`, `index.js`, `insert.js`, `schema.sql`, and EJS views). 
+
+Using the architectural patterns established in this codebase,  web application for topic/feature specified to you .
+---
+
+### CODEBASE RULES & ARCHITECTURAL PATTERNS TO FOLLOW
+
+1. **Database & Connection Pooling (`dbconnect.js`)**:
+   - Reuse the `initPool()` and `runQuery()` helper functions.
+   - All queries must be executed through `runQuery` using named parameter bindings (e.g., `{ id, content }`) to prevent SQL Injection.
+   - Ensure connections are released back to the pool in the `finally` block and `autoCommit: true` is enabled for DML statements.
+
+2. **Bulk Ingestion & Procedures (`insert.js` & `schema.sql`)**:
+   - When saving records or handling batch data, serialize arrays to JSON via `JSON.stringify()`.
+   - Write corresponding Oracle SQL schemas and PL/SQL procedures utilizing `JSON_TABLE` to unpack and insert the rows into tables.
+
+3. **Express Application & REST Routing (`index.js`)**:
+   - Structure routes using standard REST conventions:
+     - `GET /items` (List all items)
+     - `GET /items/new` (Render creation form)
+     - `POST /items` (Submit new item)
+     - `GET /items/:id` (View detail)
+     - `GET /items/:id/edit` (Render edit form)
+     - `PATCH /items/:id` (Update item using `method-override`)
+     - `DELETE /items/:id` (Remove item using `method-override`)
+   - Handle Oracle's default uppercase column output (e.g., `item.ID`, `item.TITLE`) in both route handlers and views.
+
+4. **Frontend Views (EJS + CSS)**:
+   - Provide complete, functional EJS templates inside the `views/` structure.
+   - Include clean HTML forms with proper action attributes, `_method` overrides, and corresponding CSS styling.
+
+---
+
+### DELIVERABLES REQUIRED
+For the requested website, output the complete, copy-pasteable files:
+1. **`schema.sql`**: Table definitions, sequences/identity configs, and the PL/SQL bulk insert procedure.
+2. **`index.js`**: All REST endpoints with error handling and parameter bindings.
+3. **`insert.js`**: Helper function to pass serialized JSON payloads into the PL/SQL procedure.
+4. **EJS Templates**: `views/index.ejs`, `views/show.ejs`, `views/new.ejs`, and `views/edit.ejs`.
+5. **`public/style.css`**: Basic stylesheet for layout and UI components.
+
+
+### OUTPUT CHUNKING & CONTEXT LIMIT RULES
+To prevent response truncation and stay within output token limits:
+
+1. **One File / Component Per Turn**: 
+   - Never attempt to output all project files in a single response.
+   - Output only **one complete file** per response (e.g., first output `schema.sql`, then pause).
+   
+2. **Strict Pause Protocol**:
+   - At the end of the file, stop writing immediately.
+   - Print this exact message: 
+     `[Awaiting next instruction. Reply with "next" to generate <Name of Next File>.]`
+   - Do NOT write any summaries, explanations, or code for the next file until I explicitly send `"next"`.
+
+3. **Multi-Turn Roadmap**:
+   Follow this sequential execution order:
+   - **Turn 1**: `schema.sql` (Tables + PL/SQL Procedures)
+   - **Turn 2**: `insert.js` & `dbconnect.js` (Bulk JSON handlers & Pool config)
+   - **Turn 3**: `index.js` (Express routes & CRUD endpoints)
+   - **Turn 4**: `views/` (EJS templates: index, new, show, edit)
+   - **Turn 5**: `public/style.css` (Styles)

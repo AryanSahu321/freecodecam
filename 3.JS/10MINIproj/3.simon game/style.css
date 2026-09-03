@@ -1,0 +1,35 @@
+body {
+  text-align: center;
+}
+.box-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid black;
+  border-radius: 15px;
+  margin: 10px;
+  width: 200px;
+  height: 200px;
+}
+
+.red {
+  background-color: rgb(223, 87, 87);
+}
+.green {
+  background-color: rgb(37, 166, 37);
+}
+.orange {
+  background-color: rgb(228, 124, 40);
+}
+.blue {
+  background-color: rgb(30, 30, 197);
+}
+.flash {
+  background-color: white;
+}
