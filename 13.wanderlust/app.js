@@ -11,6 +11,9 @@ const ExpressError = require("./utils/ExpressError.js");
 const { listingSchema, reviewSchema } = require("./schema.js");
 const Review = require("./models/review.js");
 
+const listingsRouter = require("./routes/listings");
+const reviewsRouter = require("./routes/reviews");
+
 app.use(cors());
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
@@ -58,7 +61,11 @@ const validateReview = (req, res, next) => {
     next();
   }
 };
+
+app.use("/listings", listingsRouter);
+
 //Index Route
+/*
 app.get(
   "/listings",
   wrapAsync(async (req, res) => {
@@ -126,9 +133,11 @@ app.delete(
     res.redirect("/listings");
   }),
 );
+*/
 
 //---------------Reviews----------------
-// post review
+app.use("/listings/:id/reviews", reviewsRouter);
+/* // post review
 app.post(
   "/listings/:id/reviews",
   validateReview,
@@ -141,6 +150,21 @@ app.post(
     res.redirect(`/listings/${listing._id}`);
   }),
 );
+// delete review
+
+app.delete(
+  "/listings/:id/reviews/:reviewId",
+  wrapAsync(async (req, res) => {
+    let { id, reviewId } = req.params;
+
+    await Listing.findByIdAndUpdate(id, {
+      $pull: { reviews: reviewId },
+    });
+    await Review.findByIdAndDelete(reviewId);
+    res.redirect(`/listings/${id}`);
+  }),
+); */
+//-------------------
 
 // app.get("/testListing", async (req, res) => {
 //   let sampleListing = new Listing({

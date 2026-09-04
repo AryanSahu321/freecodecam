@@ -68,6 +68,12 @@ body {
 .card-text {
   font: weight 400;
 }
+
+.star {
+  color: #ffc107;
+  font-size: 0.9rem;
+  margin-right: 2px;
+}
 .listing-link {
   text-decoration: none;
   color: #222222;

@@ -60,7 +60,7 @@
           id="comment"
           cols="10"
           rows="3"
-          class="form-control"
+          class="form-control" 
           required
         ></textarea>
         <div class="invalid-feedback">Please provide a comment.</div>
@@ -71,16 +71,29 @@
     <hr />
     <p><b>All Reviews</b></p>
 
-    <% for(let review of listing.reviews) { %>
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Jane Doe</h5>
-        <!-- Corrected EJS evaluation tags below 👇 -->
-        <p class="card-text"><%= review.comment %></p>
-        <p class="card-text"><%= review.rating %> Stars</p>
+    <div class="row">
+      <% for(let review of listing.reviews) { %>
+      <div class="card col-5 ms-3 mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Jane Doe</h5>
+          <p class="card-text"><%= review.comment %></p>
+          <div class="d-flex justify-content-between align-items-center mt-3">
+            
+            <div>
+              <% for(let i = 0; i < review.rating; i++) { %>
+                <i class="fa-solid fa-star star"></i>
+              <% } %>
+            </div>
+            <form method="POST" action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE" class="mb-0">
+              <button class="btn btn-sm text-danger border-0 p-1" title="Delete Review">
+                <i class="fa-solid fa-trash-can"></i>
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
+      <% } %>
     </div>
-    <% } %>
 
   </div>
 </div>
